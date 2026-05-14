@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.specs
+package uk.gov.hmrc.ui.dis.specs
 
-import uk.gov.hmrc.ui.pages.*
-import uk.gov.hmrc.ui.specs.tags.AllTests
+import uk.gov.hmrc.ui.dis.pages.*
 
-class PSADISReportSubmission extends BaseSpec {
+class PSPDISReportSubmission extends BaseSpec {
 
-  Feature("PSA IHTP Report Submission") {
+  Feature("PSP IHTP Report Submission") {
 
-    Scenario("1. PSA User Can Submit DIS Application") {
+    Scenario("1. PSP User Can Submit IHTP Application Individual") {
 
       Given("the user is logged in as an organisation user")
-      AuthLoginPage.loginAsOrgUserWithPsaEnrolment()
+      AuthLoginPage.loginAsOrgUserWithPspEnrolment()
 
       When("the user navigates to the What You will need page")
       AuthLoginPage.navigateTo(WhatYouWillNeedPage.pageUrl)
@@ -44,4 +43,5 @@ class PSADISReportSubmission extends BaseSpec {
       WhatYouWillNeedPage.SaveAndContinueButton()
     }
   }
+
 }

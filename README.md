@@ -2,7 +2,7 @@
 
 # death-in-service-ui-tests
 
-<SERVICE_NAME> UI journey tests.
+Death in Service UI journey tests.
 
 ## Pre-requisites
 
@@ -13,13 +13,19 @@ Start Mongo Docker container as follows:
 ```bash
 docker run --rm -d -p 27017:27017 --name mongo percona/percona-server-mongodb:6.0
 ```
+## Running the service
 
-Start `<SERVICE_MANAGER_PROFILE>` services as follows:
+Make sure you run all the dependant services through the service manager:
 
 ```bash
-sm2 --start <SERVICE_MANAGER_PROFILE>
+> `sm2 --start DEATH_IN_SERVICE_ALL`
 ```
 
+or if you want to run IHTP and DIS in parallel:
+
+```bash
+> `sm2 --start IHTP_AND_DIS_ALL`
+```
 ## Tests
 
 Run tests as follows:
@@ -27,9 +33,12 @@ Run tests as follows:
 * Argument `<browser>` must be `chrome`, `edge`, or `firefox`.
 * Argument `<environment>` must be `local`, `dev`, `qa` or `staging`.
 
+
+
 ```bash
 sbt clean -Dbrowser="<browser>" -Denvironment="<environment>" test testReport
 ```
+
 
 ## Scalafmt
 

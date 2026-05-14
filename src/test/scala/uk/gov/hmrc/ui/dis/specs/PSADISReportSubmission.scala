@@ -14,34 +14,29 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.specs
+package uk.gov.hmrc.ui.dis.specs
 
-import uk.gov.hmrc.ui.pages.*
+import uk.gov.hmrc.ui.dis.pages.*
 
-class PSPDISReportSubmission extends BaseSpec {
+class PSADISReportSubmission extends BaseSpec {
 
-  Feature("PSP IHTP Report Submission") {
+  Feature("PSA IHTP Report Submission") {
 
-    Scenario("1. PSP User Can Submit IHTP Application Individual") {
+    Scenario("1. PSA User Can Submit DIS Application") {
 
       Given("the user is logged in as an organisation user")
-      AuthLoginPage.loginAsOrgUserWithPspEnrolment()
+      AuthLoginPage.loginAsOrgUserWithPsaEnrolment()
 
       When("the user navigates to the What You will need page")
       AuthLoginPage.navigateTo(WhatYouWillNeedPage.pageUrl)
 
-      Then("the What You will need page URL should be correct")
-      WhatYouWillNeedPage.verifyPageUrl() shouldBe true
-
-      And("the What You will need page title should be correct")
-      WhatYouWillNeedPage.verifyPageTitle() shouldBe true
-
-      And("the page heading should be displayed")
+      Then("the What You will need page URL should be correct and the page heading should be displayed")
+      WhatYouWillNeedPage.verifyPageUrl()     shouldBe true
+      WhatYouWillNeedPage.verifyPageTitle()   shouldBe true
       WhatYouWillNeedPage.verifyPageHeading() shouldBe true
 
       And("User Should be able to see and Click Save and Continue Button")
       WhatYouWillNeedPage.SaveAndContinueButton()
     }
   }
-
 }

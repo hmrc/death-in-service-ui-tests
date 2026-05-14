@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.pages
+package uk.gov.hmrc.ui.dis.pages
 
 import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
 import org.openqa.selenium.{By, WebDriver}
 import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
-import uk.gov.hmrc.ui.conf.TestConfiguration
-import uk.gov.hmrc.ui.pages.YourSubmissionsPage.getPageSource
+import uk.gov.hmrc.ui.dis.conf.TestConfiguration
 
 import java.time.Duration
 import scala.util.Try
@@ -44,13 +43,6 @@ trait BasePage extends Matchers with PageObject {
     verifyPageLoaded(url)
   }
 
-//  def loginAndStartReturn(appaId: String): Unit = {
-//    clearDataForReturns()
-//    navigateToPage(AuthLoginPage)
-//    AuthLoginPage.enterAuthDetails(appaId)
-//    BeforeYouStartPage.continue()
-//    TaskListPage.checkURL
-//  }
   def isElementPresent(by: By): Boolean =
     Try(Driver.instance.findElement(by)).isSuccess
 
@@ -81,7 +73,7 @@ trait BasePage extends Matchers with PageObject {
   def inputCss(css: String, value: String): Unit = input(By.cssSelector(css), value)
 
   def clearDataForReturns(): Unit =
-    Driver.instance.get(TestConfiguration.url("inheritance-tax-on-pensions") + "/test-only/clear-all")
+    Driver.instance.get(TestConfiguration.url("death-in-service") + "/test-only/clear-all")
 
   def checkURL: Unit =
     if (pageUrl.contains("...")) {
@@ -89,9 +81,6 @@ trait BasePage extends Matchers with PageObject {
     } else {
       fluentWait.until(ExpectedConditions.urlToBe(pageUrl))
     }
-
-    def clickAgreeAndSubmitButton(): Unit =
-      click(By.cssSelector(".govuk-button"))
 
   def clickSaveAndContinueButton(): Unit =
     click(By.cssSelector(".govuk-button"))

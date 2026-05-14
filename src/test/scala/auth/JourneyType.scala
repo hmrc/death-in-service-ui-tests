@@ -17,5 +17,5 @@
 package auth
 
 enum JourneyType {
-  case InheritanceTaxService, viewSubmissions
+  case DeathInService, viewSubmissions
 }

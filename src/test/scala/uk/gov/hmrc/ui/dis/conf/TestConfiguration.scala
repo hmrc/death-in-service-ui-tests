@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.DIS.conf
+package uk.gov.hmrc.ui.dis.conf
 
 import com.typesafe.config.{Config, ConfigFactory}
 

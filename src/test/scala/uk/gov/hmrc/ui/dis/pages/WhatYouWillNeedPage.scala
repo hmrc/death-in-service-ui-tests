@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.pages
+package uk.gov.hmrc.ui.dis.pages
 
 object WhatYouWillNeedPage extends BasePage {
   val pageUrl: String     = s"$baseUrl/what-you-will-need"
