@@ -1,4 +1,4 @@
-**This is the template README. Please update this with project specific content.**
+
 
 # death-in-service-ui-tests
 

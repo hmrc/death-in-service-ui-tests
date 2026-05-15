@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ trait BasePage extends Matchers with PageObject {
   def clearDataForReturns(): Unit =
     Driver.instance.get(TestConfiguration.url("death-in-service") + "/test-only/clear-all")
 
-  def checkURL: Unit =
+  def checkURL(): Unit =
     if (pageUrl.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(pageUrl.replace("...", "") + ".*"))
     } else {
